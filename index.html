@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psia Ciocia - Domowa Opieka nad Psami | Murowana Goślina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4A7C59;
+            --primary-dark: #3A6347;
+            --secondary: #F4A261;
+            --bg-light: #F9F8F6;
+            --text-dark: #2C3E50;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(74, 124, 89, 0.95), rgba(58, 99, 71, 0.95)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: var(--white);
+            padding: 3.5rem 1rem 5.5rem;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "🐾 🐕 🐾 🐈";
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            font-size: 1.2rem;
+            opacity: 0.2;
+            letter-spacing: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .badge-location {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
+
+        main {
+            margin-top: -3rem;
+            padding-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .dog-image-container {
+            text-align: center;
+        }
+
+        .dog-image-container img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            aspect-ratio: 4/5;
+            transition: transform 0.3s ease;
+        }
+
+        .dog-image-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: #F4F9F5;
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #D1E7DD;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item h4 {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .price-box {
+            background: var(--bg-light);
+            border: 2px solid #E2E8F0;
+            border-radius: var(--radius);
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+        }
+
+        .price-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .price-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            background: #E8F0EC;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-box h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-box .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-box p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Kalkulator */
+        .calculator {
+            background: #F4F9F5;
+            border: 1px solid #D1E7DD;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .calc-row {
+            margin-bottom: 1.2rem;
+        }
+
+        .calc-row label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-row select, .calc-row input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--white);
+        }
+
+        .calc-checkbox-label {
+            display: flex !important;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            background: #FFFFFF;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #CBD5E1;
+        }
+
+        .calc-checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .calc-result {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(74, 124, 89, 0.2);
+        }
+
+        .calc-result-title {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .calc-result-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .calc-result-details {
+            font-size: 0.85rem;
+            opacity: 0.95;
+            margin-top: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 0.5rem;
+        }
+
+        /* Checklista Wyprawki */
+        .checklist-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .checklist-box {
+            background: #F4F9F5;
+            border: 1px solid #D1E7DD;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .checklist-box h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--bg-light);
+        }
+
+        .faq-question {
+            padding: 1rem;
+            font-weight: 600;
+            background: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 1rem;
+            color: #555;
+            font-size: 0.95rem;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        /* Kontakt */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .contact-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Murowana Goślina i okolice</div>
+            <h1>Psia Ciocia</h1>
+            <p>Domowa, bezpieczna opieka nad Twoim pupilem z mnóstwem miłości i uwagi!</p>
+            <div class="contact-info" style="margin-top: 1rem;">
+                <a href="tel:48724533084" class="contact-btn" style="background: rgba(255,255,255,0.25);"><i class="fas fa-phone"></i> +48 724 533 084</a>
+                <a href="mailto:kornelia.tomickapsiaciocia@gmail.com" class="contact-btn" style="background: rgba(255,255,255,0.25);"><i class="fas fa-envelope"></i> Napisz e-mail</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- O nas -->
+        <section class="card">
+            <h2>O mnie i o Psiej Ciotce 🐾</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Zapraszam serdecznie do skorzystania z domowej opieki nad psami w Murowanej Goślinie. U mnie Twój pupil nie trafi do zimnego kojca – staje się pełnoprawnym członkiem domowego życia!</p>
+                    <p>Zapewniam całodobową opiekę, regularne spacery dostosowane do kondycji psa, mnóstwo pieszczot oraz bezpieczną, ciepłą atmosferę, w której każdy zwierzak szybciej zapomina o tęsknocie.</p>
+                </div>
+                <div class="dog-image-container">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80" alt="Szczęśliwy pies pod opieką">
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-house-heart"></i>
+                    <h4>Domowa atmosfera</h4>
+                    <p>Bez klatek i kojców, pełna swoboda.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-dog"></i>
+                    <h4>Bezpieczeństwo</h4>
+                    <p>Indywidualne i troskliwe podejście.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera-retro"></i>
+                    <h4>Stały kontakt</h4>
+                    <p>Zdjęcia i relacje wysyłane właścicielowi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cennik -->
+        <section class="card">
+            <h2>Cennik Usług 📋</h2>
+            <div class="pricing-grid">
+                <div class="price-box">
+                    <div class="price-icon"><i class="fas fa-home"></i></div>
+                    <h3>Opieka Całodobowa</h3>
+                    <div class="price">70 zł</div>
+                    <p>za dobę pobytu (w tym domowa atmosfera i spacery)</p>
+                </div>
+                <div class="price-box">
+                    <div class="price-icon"><i class="fas fa-paw"></i></div>
+                    <h3>Spacer z psem</h3>
+                    <div class="price">30 zł</div>
+                    <p>za 1 godzinę aktywnego spaceru</p>
+                </div>
+                <div class="price-box">
+                    <div class="price-icon"><i class="fas fa-house-chimney-user"></i></div>
+                    <h3>Wizyta domowa</h3>
+                    <div class="price">35 zł</div>
+                    <p>za 1 godzinę wizyty (karmienie, zabawa, opieka)</p>
+                </div>
+                <div class="price-box">
+                    <div class="price-icon"><i class="fas fa-dog"></i></div>
+                    <h3>Drugi pies</h3>
+                    <div class="price">+50%</div>
+                    <p>dopłata do podstawowej stawki za drugiego zwierzaka</p>
+                </div>
+            </div>
+
+            <!-- Kalkulator -->
+            <div class="calculator">
+                <h3><i class="fas fa-calculator"></i> Szybki kalkulator orientacyjny</h3>
+                <div class="calc-row" style="margin-top: 1rem;">
+                    <label for="serviceType">Wybierz usługę:</label>
+                    <select id="serviceType" onchange="updateCalculatorLabel(); calculatePrice();">
+                        <option value="70">Opieka całodobowa (70 zł / doba)</option>
+                        <option value="30">Spacer z psem (30 zł / godzina)</option>
+                        <option value="35">Wizyta domowa (35 zł / godzina)</option>
+                    </select>
+                </div>
+                <div class="calc-row" id="amountRow">
+                    <label id="amountLabel" for="amountCount">Liczba dób:</label>
+                    <input type="number" id="amountCount" value="1" min="1" max="60" oninput="calculatePrice()">
+                </div>
+                <div class="calc-row">
+                    <label class="calc-checkbox-label">
+                        <input type="checkbox" id="secondDog" onchange="calculatePrice()"> 
+                        <span><i class="fas fa-dog" style="color: var(--primary); margin-right: 5px;"></i> Drugi pies w tym samym czasie <strong>(+50% do ceny)</strong></span>
+                    </label>
+                </div>
+                <div class="calc-result" id="calcResultOutput">
+                    <div class="calc-result-title">Szacowany koszt</div>
+                    <div class="calc-result-value">70 zł</div>
+                    <div class="calc-result-details" id="calcDetails">1 pies × 70 zł (1 doba)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklista Wyprawki -->
+        <section class="card">
+            <h2>Checklista Wyprawki – Co przygotować? ✨</h2>
+            <p style="text-align: center; color: #555; margin-bottom: 1.5rem; font-size: 0.95rem;">Zaznacz rzeczy, które spakujesz dla swojego pupila na czas pobytu lub opieki:</p>
+            <div class="checklist-container">
+                <div class="checklist-box">
+                    <h3><i class="fas fa-suitcase-rolling"></i> Na całodobowy pobyt</h3>
+                    <label class="checklist-item"><input type="checkbox"> Karma na cały czas pobytu (+ zapas)</label>
+                    <label class="checklist-item"><input type="checkbox"> Ulubione legowisko lub kocyk</label>
+                    <label class="checklist-item"><input type="checkbox"> Miski na wodę i jedzenie</label>
+                    <label class="checklist-item"><input type="checkbox"> Ulubione smaczki i gryzaki</label>
+                </div>
+                <div class="checklist-box">
+                    <h3><i class="fas fa-leash"></i> Na spacery i wizyty</h3>
+                    <label class="checklist-item"><input type="checkbox"> Wygodna obroża lub szelki</label>
+                    <label class="checklist-item"><input type="checkbox"> Mocna smycz (oraz linka, jeśli używacie)</label>
+                    <label class="checklist-item"><input type="checkbox"> Woreczki na odchody</label>
+                    <label class="checklist-item"><input type="checkbox"> Ulubiona zabawka (np. piłka)</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ / Pytania -->
+        <section class="card">
+            <h2>Najczęściej zadawane pytania 💡</h2>
+            <div class="faq-item">
+                <div class="faq-question">Czy przyjmujesz psy niesocjalne lub z lękiem separacyjnym?</div>
+                <div class="faq-answer">Do każdego zwierzaka podchodzę indywidualnie. Przed pierwszym pobytem chętnie umówię się na spacer zapoznawczy, aby sprawdzić, jak piesek odnajduje się w nowym otoczeniu.</div>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section class="card" style="text-align: center;">
+            <h2>Skontaktuj się i zarezerwuj termin</h2>
+            <p style="margin-bottom: 1.5rem; color: #555;">Masz pytania lub chcesz omówić szczegóły opieki nad swoim pupilem? Zadzwoń lub napisz!</p>
+            <div class="contact-info">
+                <a href="tel:48724533084" class="contact-btn"><i class="fas fa-phone-alt"></i> Zadzwoń: 724 533 084</a>
+                <a href="mailto:kornelia.tomickapsiaciocia@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> Napisz e-mail</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Psia Ciocia - Kornelia Tomicka | Murowana Goślina. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        function updateCalculatorLabel() {
+            const serviceType = document.getElementById('serviceType').value;
+            const label = document.getElementById('amountLabel');
+            if (serviceType === "70") {
+                label.innerText = "Liczba dób:";
+            } else {
+                label.innerText = "Liczba godzin:";
+            }
+        }
+
+        function calculatePrice() {
+            const serviceSelect = document.getElementById('serviceType');
+            const servicePrice = parseFloat(serviceSelect.value);
+            const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text.split(' (')[0];
+            const amountInput = document.getElementById('amountCount');
+            const secondDogChecked = document.getElementById('secondDog').checked;
+            
+            let quantity = parseInt(amountInput.value) || 1;
+            let baseTotal = servicePrice * quantity;
+            let finalTotal = baseTotal;
+
+            let unitName = serviceType === "70" ? (quantity === 1 ? "doba" : "doby") : (quantity === 1 ? "godzina" : "godziny");
+            if (serviceType !== "70") {
+                unitName = "godz.";
+            }
+
+            let detailsText = `1 pies: ${quantity} ${unitName} × ${servicePrice} zł`;
+
+            if (secondDogChecked) {
+                finalTotal = baseTotal * 1.5;
+                let surcharge = baseTotal * 0.5;
+                detailsText = `Cena bazowa (${quantity} ${unitName}): ${baseTotal} zł + Drugi pies (+50%): +${surcharge} zł`;
+            }
+
+            document.getElementById('calcResultOutput').innerHTML = `
+                <div class="calc-result-title">Szacowany koszt</div>
+                <div class="calc-result-value">${Math.round(finalTotal)} zł</div>
+                <div class="calc-result-details">${detailsText}</div>
+            `;
+        }
+    </script>
+</body>
+</html>
